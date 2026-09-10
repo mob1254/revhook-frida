@@ -121,7 +121,7 @@ afterEvaluate {
         def flavorCapped = variant.flavorName.capitalize()
         def flavorLowered = variant.flavorName.toLowerCase()
 
-        def zipName = "${moduleName}-${moduleVersion}-${flavorLowered}-${buildTypeLowered}.zip"
+        def zipName = "RevhookFrida-${moduleVersion}-${flavorLowered}-${buildTypeLowered}.zip"
         def magiskDir = file("${outDir}/magisk_module_${flavorLowered}_${buildTypeLowered}")
 
         task("prepareMagiskFiles${variantCapped}", type: Sync) {

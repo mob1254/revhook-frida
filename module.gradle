@@ -1,7 +1,7 @@
 ext {
     // Magisk Module
-    magiskModuleId = "jsxposedx-frida"
-    moduleName = "JsxposedxFrida"
+    magiskModuleId = "revhook-frida"
+    moduleName = "Revhook Frida"
     moduleAuthor = "挽风"
     moduleDescription = "Injects frida gadget via zygisk.Thanks to Lico-N for technical support.git:https://github.com/lico-n/ZygiskFrida"
     moduleVersion = "v2.0.1"

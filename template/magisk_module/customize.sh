@@ -6,9 +6,9 @@ MODULE_ID=@MODULE_ID@
 TMP_MODULE_DIR=/data/local/tmp/JsxposedXSo
 
 if [ "$FLAVOR" != "zygisk" ] && [ "$FLAVOR" != "riru" ]; then
-  abort "! Unknown ZygiskFrida flavor: $FLAVOR"
+  abort "! Unknown Revhook Frida flavor: $FLAVOR"
 else
-  ui_print "- ZygiskFrida flavor: $FLAVOR"
+  ui_print "- Revhook Frida flavor: $FLAVOR"
 fi
 
 if [ "$ARCH" != "arm" ] && [ "$ARCH" != "arm64" ] && [ "$ARCH" != "x86" ] && [ "$ARCH" != "x64" ]; then

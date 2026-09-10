@@ -2,7 +2,7 @@
 
 [中文说明 / Chinese documentation](./README_zh.md)
 
-This repository is a fork of [`lico-n/ZygiskFrida`](https://github.com/lico-n/ZygiskFrida). The current branch builds a Magisk module named `JsxposedxFrida` with module ID `jsxposedx-frida`.
+This repository is a fork of [`dugongzi/jsxposedx-frida`](https://github.com/dugongzi/jsxposedx-frida) (itself based on [`lico-n/ZygiskFrida`](https://github.com/lico-n/ZygiskFrida)). The current branch builds a Magisk module named `Revhook Frida` with module ID `revhook-frida`. Runtime paths stay `/data/local/tmp/JsxposedXSo`.
 
 Its purpose is to inject Frida Gadget and additional native libraries into target apps through Zygisk or Riru, using a structured `config.json v1` instead of the legacy plain-text configuration files.
 
@@ -87,8 +87,8 @@ You can also invoke the zip tasks directly:
 Generated artifacts are written to `out/`, for example:
 
 ```text
-out/JsxposedxFrida-v2.0.0-zygisk-release.zip
-out/JsxposedxFrida-v2.0.0-riru-release.zip
+out/RevhookFrida-v2.0.1-zygisk-release.zip
+out/RevhookFrida-v2.0.1-riru-release.zip
 ```
 
 ## Device Runtime Layout

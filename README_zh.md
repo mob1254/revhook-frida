@@ -2,7 +2,7 @@
 
 [English README](./README.md)
 
-这是一个基于上游 [`lico-n/ZygiskFrida`](https://github.com/lico-n/ZygiskFrida) 的二开版本，当前仓库产出的模块名为 `JsxposedxFrida`，模块 ID 为 `jsxposedx-frida`。
+这是 [`dugongzi/jsxposedx-frida`](https://github.com/dugongzi/jsxposedx-frida) 的 fork（上游是 [`lico-n/ZygiskFrida`](https://github.com/lico-n/ZygiskFrida)）。当前仓库产出的模块名为 `Revhook Frida`，模块 ID 为 `revhook-frida`。运行目录仍是 `/data/local/tmp/JsxposedXSo`。
 
 项目目标是在 Zygisk / Riru 环境下，将 Frida Gadget 和额外 native so 按进程规则注入到目标应用，并通过结构化的 `config.json v1` 完成配置管理。
 
@@ -88,8 +88,8 @@
 产物输出到 `out/`，例如：
 
 ```text
-out/JsxposedxFrida-v2.0.0-zygisk-release.zip
-out/JsxposedxFrida-v2.0.0-riru-release.zip
+out/RevhookFrida-v2.0.1-zygisk-release.zip
+out/RevhookFrida-v2.0.1-riru-release.zip
 ```
 
 ## 设备端运行目录
