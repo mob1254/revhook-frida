@@ -18,43 +18,30 @@ dependencies {
     implementation("io.github.vvb2060.ndk:dobby:1.2")
 }
 
-task downloadFrida(type: Download) {
-    def downloadArchs = ["arm", "arm64", "x86_64", "x86"]
-    def magiskArchs = ["arm", "arm64", "x64", "x86"]
+def gadgetDir = file("$rootDir/gadget")
+def fridaGadgetMap = [
+        "arm"  : "arm",
+        "arm64": "arm64",
+        "x64"  : "x86_64",
+        "x86"  : "x86",
+]
 
-    def sources = downloadArchs.collect{
-        arch -> "https://github.com/frida/frida/releases/download/${fridaVersion}/frida-gadget-${fridaVersion}-android-${arch}.so.xz".toString()
+fridaGadgetMap.each { magiskArch, fridaArch ->
+    def destFile = file("${gadgetDir}/libgadget-${magiskArch}.so.xz")
+    task("downloadFrida_${magiskArch}", type: Download) {
+        src "https://github.com/frida/frida/releases/download/${fridaVersion}/frida-gadget-${fridaVersion}-android-${fridaArch}.so.xz"
+        dest destFile
+        overwrite false
+        quiet true
+        onlyIf { !destFile.exists() }
+        doFirst { gadgetDir.mkdirs() }
     }
+}
 
-    def outputs = magiskArchs.collect{
-        arch ->  "libgadget-${arch}.so.xz".toString()
-    }
-
-    def downloads = [sources, outputs].transpose().collectEntries()
-
-    def gadgetDir = file("$rootDir/gadget")
-    def missingSources = {
-        downloads.findAll { source, output ->
-            !file("${gadgetDir}/${output}").exists()
-        }
-    }
-
-    src missingSources().keySet()
-    dest "$rootDir/gadget"
-    overwrite false
-    quiet true
-    onlyIf {
-        !missingSources().isEmpty()
-    }
-    doFirst {
-        gadgetDir.mkdirs()
-        src missingSources().keySet()
-    }
-    eachFile { f ->
-        f.name = downloads[f.sourceURL.toString()]
-    }
+task downloadFrida {
+    dependsOn fridaGadgetMap.keySet().collect { "downloadFrida_${it}" }
     doLast {
-        def missingOutputs = downloads.values().findAll { output ->
+        def missingOutputs = fridaGadgetMap.keySet().collect { "libgadget-${it}.so.xz" }.findAll { output ->
             !file("${gadgetDir}/${output}").exists()
         }
         if (!missingOutputs.isEmpty()) {
