@@ -1,4 +1,4 @@
-# ZygiskFrida
+# Revhook Frida
 
 [中文说明 / Chinese documentation](./README_zh.md)
 

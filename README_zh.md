@@ -1,4 +1,4 @@
-# ZygiskFrida
+# Revhook Frida
 
 [English README](./README.md)
 
