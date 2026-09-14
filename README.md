@@ -1,6 +1,6 @@
 # Revhook Frida
 
-[![License: MIT](https://img.shields.io/github/license/mob1254/RevhookFrida)](LICENSE)
+[![License: MIT](https://img.shields.io/github/license/mob1254/revhook-frida)](LICENSE)
 
 > Revhook 配套的 Magisk / KernelSU Frida 模块
 
